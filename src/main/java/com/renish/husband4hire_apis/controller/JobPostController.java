@@ -28,14 +28,14 @@ public class JobPostController {
         return new ResponseEntity<>(jobPostService.createJobPost(jobPost), HttpStatus.CREATED);
     }
 
-    @PostMapping("/upadatjobpost")
+    @PutMapping("/upadatjobpost")
     public ResponseEntity<JobPost> updateJobPost(@RequestBody JobPost jobPost) {
         return ResponseEntity.ok().body(jobPostService.updateJobPost(jobPost));
     }
 
-    @DeleteMapping
-    public ResponseEntity<JobPost> deleteJobPost(@RequestBody JobPost jobPost) {
-        return new ResponseEntity<>(jobPostService.deleteJobPost(jobPost), HttpStatus.OK);
+    @DeleteMapping("/deletejobpost/{id)")
+    public ResponseEntity<String> deleteJobPost(@PathVariable int id) {
+        return new ResponseEntity<>(jobPostService.deleteJobPost(id), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

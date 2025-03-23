@@ -27,8 +27,9 @@ public class JobPostService {
         return jobPostRepo.save(jobPost);
     }
 
-    public JobPost deleteJobPost(JobPost jobPost) {
-        return jobPostRepo.save(jobPost);
+    public String deleteJobPost(int id) {
+        jobPostRepo.deleteById(id);
+        return "Delete Job Post successfully";
     }
 
     public JobPost getJobPostByID(int id) {
