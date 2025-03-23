@@ -37,4 +37,52 @@ public class JobApplication {
         ACCEPTED,
         REJECTED
     }
+
+    public User getJobSeeker() {
+        return jobSeeker;
+    }
+
+    public void setJobSeeker(User jobSeeker) {
+        this.jobSeeker = jobSeeker;
+    }
+
+    public Integer getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(Integer applicationID) {
+        this.applicationID = applicationID;
+    }
+
+    public JobPost getJobPost() {
+        return jobPost;
+    }
+
+    public void setJobPost(JobPost jobPost) {
+        this.jobPost = jobPost;
+    }
+
+    public LocalDate getApplicationDate() {
+        return applicationDate;
+    }
+
+    public void setApplicationDate(LocalDate applicationDate) {
+        this.applicationDate = applicationDate;
+    }
+
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApplicationStatus status) {
+        this.status = status;
+    }
+
+    public String getCoverLetter() {
+        return coverLetter;
+    }
+
+    public void setCoverLetter(String coverLetter) {
+        this.coverLetter = coverLetter;
+    }
 }
