@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Users")
@@ -34,6 +33,12 @@ public class User {
 
     @Column(name = "is_jobseeker")
     private Boolean isJobseeker = true;
+
+    @Column(length = 10)
+    private int otp;
+
+    @Column(name ="verifiedOTP")
+    private Boolean verifiedOTP = false;
 
     public Integer getUserID() {
         return userID;
@@ -97,5 +102,21 @@ public class User {
 
     public void setJobseeker(Boolean jobseeker) {
         isJobseeker = jobseeker;
+    }
+
+    public int getOtp() {
+        return otp;
+    }
+
+    public void setOtp(int otp) {
+        this.otp = otp;
+    }
+
+    public Boolean getVerifiedOTP() {
+        return verifiedOTP;
+    }
+
+    public void setVerifiedOTP(Boolean verifiedOTP) {
+        this.verifiedOTP = verifiedOTP;
     }
 }

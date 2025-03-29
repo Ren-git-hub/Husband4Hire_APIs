@@ -33,7 +33,7 @@ public class JobPostController {
         return ResponseEntity.ok().body(jobPostService.updateJobPost(jobPost));
     }
 
-    @DeleteMapping("/deletejobpost/{id)")
+    @DeleteMapping("/deletejobpost/{id}")
     public ResponseEntity<String> deleteJobPost(@PathVariable int id) {
         return new ResponseEntity<>(jobPostService.deleteJobPost(id), HttpStatus.OK);
     }
