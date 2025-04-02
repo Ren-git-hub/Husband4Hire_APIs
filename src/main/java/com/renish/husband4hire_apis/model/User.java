@@ -35,7 +35,7 @@ public class User {
     private Boolean isJobseeker = true;
 
     @Column(length = 10)
-    private int otp;
+    private int otp ;
 
     @Column(name ="verifiedOTP")
     private Boolean verifiedOTP = false;

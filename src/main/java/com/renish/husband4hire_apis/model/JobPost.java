@@ -37,6 +37,9 @@ public class JobPost {
     @Column(name = "is_available")
     private Boolean isAvailable = true;
 
+    @Column(name="hours")
+    private int hours ;
+
     public Integer getJobPostID() {
         return jobPostID;
     }
@@ -99,5 +102,13 @@ public class JobPost {
 
     public void setAvailable(Boolean available) {
         isAvailable = available;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 }

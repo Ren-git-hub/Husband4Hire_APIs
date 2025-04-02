@@ -42,4 +42,9 @@ public class JobPostController {
     public ResponseEntity<JobPost> getJobPostById(@PathVariable int id) {
         return ResponseEntity.ok().body(jobPostService.getJobPostByID(id));
     }
+
+    @GetMapping("/searchjobpost/{keyword}")
+    public ResponseEntity<List<JobPost>> searchJobPost(@PathVariable String keyword ) {
+        return new ResponseEntity<>(jobPostService.searchJobPostByKeyword(keyword), HttpStatus.OK);
+    }
 }

@@ -35,4 +35,8 @@ public class JobPostService {
     public JobPost getJobPostByID(int id) {
         return jobPostRepo.findById(id).get();
     }
+
+    public List<JobPost> searchJobPostByKeyword(String keyword) {
+        return jobPostRepo.searchJobPostByKeyword(keyword);
+    }
 }
