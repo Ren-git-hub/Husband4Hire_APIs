@@ -1,0 +1,1 @@
+Husband4Hire is a powerful and user-friendly web application that helps users search for job listings from various sources in one place. It provides features like job filtering, keyword search, location-based results, and employer information, making job hunting more efficient and effective
