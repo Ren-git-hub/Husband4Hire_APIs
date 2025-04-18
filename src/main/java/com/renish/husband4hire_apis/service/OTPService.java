@@ -1,6 +1,6 @@
 package com.renish.husband4hire_apis.service;
 
-import com.renish.husband4hire_apis.model.User;
+import com.renish.husband4hire_apis.model.Users;
 import com.renish.husband4hire_apis.repository.UserRepo;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class OTPService {
     }
 
     public boolean validateOTP(String username , int otp) {
-        User user = userRepo.findUsersByUsername(username);
+        Users user = userRepo.findUsersByUsername(username);
         if(user.getOtp() == otp) {
             user.setOtp(0);
             userRepo.save(user);

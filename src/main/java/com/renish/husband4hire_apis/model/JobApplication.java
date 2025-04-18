@@ -22,7 +22,7 @@ public class JobApplication {
 
     @ManyToOne
     @JoinColumn(name = "JobSeekerID", nullable = false)
-    private User jobSeeker;
+    private Users jobSeeker;
 
     private LocalDate applicationDate;
 
@@ -38,11 +38,11 @@ public class JobApplication {
         REJECTED
     }
 
-    public User getJobSeeker() {
+    public Users getJobSeeker() {
         return jobSeeker;
     }
 
-    public void setJobSeeker(User jobSeeker) {
+    public void setJobSeeker(Users jobSeeker) {
         this.jobSeeker = jobSeeker;
     }
 

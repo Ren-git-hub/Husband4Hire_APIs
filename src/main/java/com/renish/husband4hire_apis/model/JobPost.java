@@ -19,7 +19,7 @@ public class JobPost {
 
     @ManyToOne
     @JoinColumn(name = "EmployerID", nullable = false)
-    private User employer;
+    private Users employer;
 
     @Column(nullable = false, length = 150)
     private String title;
@@ -48,11 +48,11 @@ public class JobPost {
         this.jobPostID = jobPostID;
     }
 
-    public User getEmployer() {
+    public Users getEmployer() {
         return employer;
     }
 
-    public void setEmployer(User employer) {
+    public void setEmployer(Users employer) {
         this.employer = employer;
     }
 
