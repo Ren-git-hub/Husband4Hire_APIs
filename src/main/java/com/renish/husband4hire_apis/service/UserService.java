@@ -50,4 +50,8 @@ public class UserService {
         emailService.sendEmail(user.getEmail(), "[No-Reply] OTP for Login Husband4Hire App",body);
        return "OTP send to your Email Address, Please verify OTP.";
     }
+
+    public Users getUserProfile(String username) {
+        return userRepo.findUsersByUsername(username);
+    }
 }

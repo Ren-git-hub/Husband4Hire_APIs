@@ -2,7 +2,6 @@ package com.renish.husband4hire_apis.controller;
 
 import com.renish.husband4hire_apis.model.JobPost;
 import com.renish.husband4hire_apis.service.JobPostService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,40 +10,45 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin
-@RestController()
+@RestController
 @RequestMapping("/jobpost")
 public class JobPostController {
 
     @Autowired
-    JobPostService jobPostService;
+    private JobPostService jobPostService;
 
     @GetMapping("/alljobpost")
     public ResponseEntity<List<JobPost>> getAllJobPost() {
-        return ResponseEntity.ok().body(jobPostService.getAllJobPost());
+        return ResponseEntity.ok(jobPostService.getAllJobPost());
     }
 
     @PostMapping("/createjobpost")
     public ResponseEntity<JobPost> createJobPost(@RequestBody JobPost jobPost) {
-        return new ResponseEntity<>(jobPostService.createJobPost(jobPost), HttpStatus.CREATED);
+        JobPost created = jobPostService.createJobPost(jobPost);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @PutMapping("/upadatjobpost")
     public ResponseEntity<JobPost> updateJobPost(@RequestBody JobPost jobPost) {
-        return ResponseEntity.ok().body(jobPostService.updateJobPost(jobPost));
+        JobPost updated = jobPostService.updateJobPost(jobPost);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/deletejobpost/{id}")
     public ResponseEntity<String> deleteJobPost(@PathVariable int id) {
-        return new ResponseEntity<>(jobPostService.deleteJobPost(id), HttpStatus.OK);
+        jobPostService.deleteJobPost(id);
+        return ResponseEntity.ok("Delete Job Post successfully");
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<JobPost> getJobPostById(@PathVariable int id) {
-        return ResponseEntity.ok().body(jobPostService.getJobPostByID(id));
+        JobPost jp = jobPostService.getJobPostByID(id);
+        return ResponseEntity.ok(jp);
     }
 
     @GetMapping("/searchjobpost/{keyword}")
-    public ResponseEntity<List<JobPost>> searchJobPost(@PathVariable String keyword ) {
-        return new ResponseEntity<>(jobPostService.searchJobPostByKeyword(keyword), HttpStatus.OK);
+    public ResponseEntity<List<JobPost>> searchJobPost(@PathVariable String keyword) {
+        List<JobPost> results = jobPostService.searchJobPostByKeyword(keyword);
+        return ResponseEntity.ok(results);
     }
 }
