@@ -7,11 +7,13 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+//Email sending service
 @Service
 public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
+    //method to get user data and send email
     public void sendEmail(String to, String subject, String body) throws MessagingException {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);

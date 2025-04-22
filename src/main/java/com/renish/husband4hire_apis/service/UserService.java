@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+//This class representing User services and business logic
 @Service
 public class UserService {
 
@@ -30,6 +31,7 @@ public class UserService {
 
     BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
 
+    //method verify user details
     public String verifyUser(Users user) {
         Authentication authentication =
                 authenticationManager
@@ -41,16 +43,18 @@ public class UserService {
         return "fail";
     }
 
+    //signup method
     public String signup(Users user) throws MessagingException {
         int otp = Integer.parseInt(otpService.generateOTP());
         user.setOtp(otp);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepo.save(user);
         String body = "You are registered successfully. OTP for login is : " +otp;
-        emailService.sendEmail(user.getEmail(), "[No-Reply] OTP for Login Husband4Hire App",body);
+        emailService.sendEmail(user.getEmail(), "[No-Reply] OTP for Login Husband4Hire App",body); // sending Email with otp
        return "OTP send to your Email Address, Please verify OTP.";
     }
 
+    //get user profile from database
     public Users getUserProfile(String username) {
         return userRepo.findUsersByUsername(username);
     }

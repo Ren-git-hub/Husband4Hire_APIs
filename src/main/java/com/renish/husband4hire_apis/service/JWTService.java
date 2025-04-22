@@ -48,6 +48,7 @@ public class JWTService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+    //method to validate token and extract user data
     public String extractUsername(String token) {
         // extract the username from jwt token
         return extractClaim(token, Claims::getSubject);

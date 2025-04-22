@@ -3,6 +3,7 @@ package com.renish.husband4hire_apis.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+//represent user class
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
