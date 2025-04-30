@@ -119,6 +119,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>Husband4Hire_APIs</finalName>
     </build>
 
 </project>
