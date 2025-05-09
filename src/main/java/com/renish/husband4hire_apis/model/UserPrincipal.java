@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 // this class represent current user credentials
 
@@ -16,7 +17,9 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("USER"));
+        return user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName())) // e.g., "ROLE_ADMIN"
+                .collect(Collectors.toList());
     }
 
     public UserPrincipal(Users user) {

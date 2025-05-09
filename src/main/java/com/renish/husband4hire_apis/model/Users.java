@@ -3,6 +3,9 @@ package com.renish.husband4hire_apis.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //represent user class
 @Entity
 @NoArgsConstructor
@@ -40,6 +43,13 @@ public class Users {
 
     @Column(name ="verifiedOTP")
     private Boolean verifiedOTP = false;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "userID"),
+            inverseJoinColumns = @JoinColumn(name = "roleID"))
+    private List<Role> roles;
 
     public Integer getUserID() {
         return userID;
@@ -119,5 +129,13 @@ public class Users {
 
     public void setVerifiedOTP(Boolean verifiedOTP) {
         this.verifiedOTP = verifiedOTP;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }
