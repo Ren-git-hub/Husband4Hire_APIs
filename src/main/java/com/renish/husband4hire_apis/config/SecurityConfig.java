@@ -1,6 +1,7 @@
 package com.renish.husband4hire_apis.config;
 
 import com.renish.husband4hire_apis.filters.JWTFilter;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -29,8 +30,9 @@ import java.util.List;
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    @Value("${frontend.url}")
+    @Value("${FRONTEND_URL}")
     private String frontendUrl;
+
 
     @Autowired
     UserDetailsService userDetailsService;
